@@ -28,7 +28,7 @@ def valid_move?(index)
 end
 def turn_count(board)
   count = 0
-  board.each do |space|
+  @board.each do |space|
     if space == "X" || space == "O"
       count += 1
     end
@@ -39,8 +39,8 @@ def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
   index = input_to_index(input)
-  if valid_move?(board, index)
-    move(board, index, current_player(board))
+  if valid_move?(index)
+    move(index, current_player(board))
   else turn(board)
   end
   display_board(board)
