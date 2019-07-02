@@ -27,62 +27,62 @@ def valid_move?(index)
   !position_taken?(index) && index.between?(0, 8)
 end
 def turn_count(board)
-  count = 0
+  @count = 0
   @board.each do |space|
     if space == "X" || space == "O"
-      count += 1
+      @count += 1
     end
   end
-  count
+  @count
 end
-def turn(board)
-  puts "Please enter 1-9:"
-  input = gets.strip
-  index = input_to_index(input)
-  if valid_move?(index)
-    move(index, current_player(board))
-  else turn(board)
-  end
-  display_board(board)
-end
-
-def play(board)
-   until over?(board)
-    turn(board)
-   end
-     if draw?(board)
-       puts "Cat's Game!"
-     elsif winner(board)
-       puts "Congratulations #{winner(board)}!"
-     end
-end
-def current_player(board)
-  if turn_count(board) % 2 == 0
-    "X"
-  else
-    "O"
-  end
-end
-
-def full?(board)
-  board.all? do |space|
-    space == "X" || space == "O"
-  end
-end
-
-def draw?(board)
-  full?(board) && !won?(board)
-end
-
-def over?(board)
-  won?(board) || full?(board) || draw?(board)
-end
-
-def winner(board)
-    if won?(board)
-       board[won?(board)[1]]
-    end
-end
+# def turn(board)
+#   puts "Please enter 1-9:"
+#   input = gets.strip
+#   index = input_to_index(input)
+#   if valid_move?(index)
+#     move(index, current_player(board))
+#   else turn(board)
+#   end
+#   display_board(board)
+# end
+#
+# def play(board)
+#    until over?(board)
+#     turn(board)
+#    end
+#      if draw?(board)
+#        puts "Cat's Game!"
+#      elsif winner(board)
+#        puts "Congratulations #{winner(board)}!"
+#      end
+# end
+# def current_player(board)
+#   if turn_count(board) % 2 == 0
+#     "X"
+#   else
+#     "O"
+#   end
+# end
+#
+# def full?(board)
+#   board.all? do |space|
+#     space == "X" || space == "O"
+#   end
+# end
+#
+# def draw?(board)
+#   full?(board) && !won?(board)
+# end
+#
+# def over?(board)
+#   won?(board) || full?(board) || draw?(board)
+# end
+#
+# def winner(board)
+#     if won?(board)
+#        board[won?(board)[1]]
+#     end
+# end
 
 
 
