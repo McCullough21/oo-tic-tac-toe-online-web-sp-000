@@ -46,7 +46,7 @@ def turn
   display_board
 end
 
-def play(board)
+def play
    until over?
     turn
    end
