@@ -50,10 +50,10 @@ def play(board)
    until over?
     turn
    end
-     if draw?(board)
+     if draw?
        puts "Cat's Game!"
      elsif winner
-       puts "Congratulations #{winner(board)}!"
+       puts "Congratulations self.winner!"
      end
 end
 
