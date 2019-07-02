@@ -58,7 +58,7 @@ def play(board)
 end
 def won?
     WIN_COMBINATIONS.detect do |combo|
-      position_taken? @board(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]]  == @board[combo[2]]
+      position_taken? @board[combo[0]] && @board[combo[0]] == @board[combo[1]] && @board[combo[1]]  == @board[combo[2]]
     end
 end
 def current_player
