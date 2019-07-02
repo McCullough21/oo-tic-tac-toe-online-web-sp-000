@@ -56,11 +56,12 @@ def play(board)
        puts "Congratulations #{winner(board)}!"
      end
 end
+
 def won?
-    WIN_COMBINATIONS.detect do |combo|
-      position_taken? @board[combo[0]] && @board[combo[0]] == @board[combo[1]] && @board[combo[1]]  == @board[combo[2]]
-    end
-end
+      WIN_COMBINATIONS.detect do |combo|
+        position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]]  == @board[combo[2]]
+      end
+  end
 def current_player
   if turn_count % 2 == 0
     "X"
