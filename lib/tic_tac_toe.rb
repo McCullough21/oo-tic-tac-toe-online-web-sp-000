@@ -45,17 +45,22 @@ def turn
   end
   display_board
 end
-#
-# def play(board)
-#    until over?(board)
-#     turn(board)
-#    end
-#      if draw?(board)
-#        puts "Cat's Game!"
-#      elsif winner(board)
-#        puts "Congratulations #{winner(board)}!"
-#      end
-# end
+
+def play(board)
+   until over?
+    turn
+   end
+     if draw?(board)
+       puts "Cat's Game!"
+     elsif winner
+       puts "Congratulations #{winner(board)}!"
+     end
+end
+def won?
+    WIN_COMBINATIONS.detect do |combo|
+      position_taken? @board(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]]  == @board[combo[2]]
+    end
+end
 def current_player
   if turn_count % 2 == 0
     "X"
@@ -64,25 +69,25 @@ def current_player
   end
 end
 #
-# def full?(board)
-#   board.all? do |space|
-#     space == "X" || space == "O"
-#   end
-# end
-#
-# def draw?(board)
-#   full?(board) && !won?(board)
-# end
-#
-# def over?(board)
-#   won?(board) || full?(board) || draw?(board)
-# end
-#
-# def winner(board)
-#     if won?(board)
-#        board[won?(board)[1]]
-#     end
-# end
+def full?
+  @board.all? do |space|
+    space == "X" || space == "O"
+  end
+end
+
+def draw?
+  full? && !won?
+end
+
+def over?(board)
+  won? || full? || draw?
+end
+
+def winner
+    if won?
+       @board[won?[1]]
+    end
+end
 
 
 
